@@ -1,0 +1,176 @@
+/* Reset básico e corpo */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Garante que o corpo e o root ocupem 100% da altura */
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5; /* Cor de fundo clara */
+  overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw; /* Ocupa 100% da largura da viewport */
+}
+
+/* --- Top Bar --- */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4285F4; /* Azul do Google, similar ao modelo */
+  color: white;
+  padding: 10px 20px;
+  height: 60px; /* Altura fixa da top-bar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.menu-section,
+.user-section,
+.report-title {
+  display: flex;
+  align-items: center;
+}
+
+.menu-icon {
+  font-size: 1.5em; /* Tamanho para o ícone de menu */
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.user-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #E91E63; /* Cor vermelha para a bolinha do usuário */
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 2px solid white; /* Borda branca ao redor da bolinha */
+}
+
+.report-title {
+  flex-grow: 1; /* Permite que o título ocupe o espaço restante */
+  text-align: right; /* Alinha o texto à direita */
+  justify-content: flex-end; /* Garante que o conteúdo vá para a direita */
+  margin-right: 20px; /* Espaçamento da borda */
+}
+
+
+/* --- Main Content --- */
+.main-content {
+  flex-grow: 1; /* Ocupa o restante da altura disponível */
+  padding: 20px;
+  background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center; /* Centraliza os selects */
+  flex-wrap: wrap;
+  gap: 25px; /* Espaçamento maior entre os grupos de select */
+  margin-bottom: 30px;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  width: 100%; /* Ocupa a largura total do main-content */
+  max-width: 900px; /* Limita a largura para não esticar demais */
+}
+
+.select-group {
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Evita que label e select quebrem linha */
+}
+
+.select-group label {
+  font-weight: normal; /* Mais leve que o bold anterior */
+  color: #333;
+  margin-right: 8px;
+  font-size: 0.95em;
+}
+
+.select-group select {
+  padding: 8px 12px;
+  border: 1px solid #c7c7c7; /* Borda mais suave */
+  border-radius: 4px;
+  background-color: white;
+  min-width: 120px;
+  cursor: pointer;
+  font-size: 0.95em;
+  color: #333;
+  -webkit-appearance: none; /* Remove estilo padrão de select no Webkit */
+  -moz-appearance: none; /* Remove estilo padrão de select no Mozilla */
+  appearance: none; /* Remove estilo padrão */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4L157.1%20199.3c-4.7%204.7-12.3%204.7-17%200L5.4%2069.4c-4.7-4.7-4.7-12.3%200-17l19.8-19.8c4.7-4.7%2012.3-4.7%2017%200L146.2%20163.7l113.8-113.8c4.7-4.7%2012.3-4.7%2017%200l19.8%2019.8c4.7%204.7%204.7%2012.3%200%2017z%22%2F%3E%3C%2Fsvg%3E'); /* Seta customizada */
+  background-repeat: no-repeat;
+  background-position: right 8px top 50%;
+  background-size: 12px auto;
+}
+
+.select-group select:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+  color: #6c757d;
+}
+
+.chart-subtitle {
+  font-size: 1.1em;
+  font-weight: normal;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.selected-item-detail {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilo para o container do gráfico */
+div[style*="chartType"] { /* Targeta o Chart da react-google-charts */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  width: 100%; /* Ocupa 100% da largura do main-content */
+  max-width: 900px; /* Limita a largura máxima como os selects */
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+}
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    padding: 8px 15px;
+  }
+
+  .menu-section, .user-section, .report-title {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+  .report-title {
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .controls-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .select-group {
+    justify-content: space-between;
+  }
+}
